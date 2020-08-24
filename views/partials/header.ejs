@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+        <title>Cook Book</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/app.css">
+        <link rel="stylesheet" href="/css/all.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+      
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand" href="#"><i class="fas fa-utensils"></i> Cook Book</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/recipes">Meals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recipes/new">Add recipe <i class="fas fa-plus-circle"></i></a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                <% if(currentUser) { %>
+                  <li class="nav-item">
+                    
+                  </li>
+                  <li class="nav-item">
+                    <span class="d-inline text-white" href="#"><i class="fas fa-user-circle"></i> <%= currentUser.username %></span>
+                    <a class="nav-link d-inline" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                <% } else { %>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                  </li>
+                <% } %>
+              </ul>
+            </div>
+          </nav>
+
+          <% if(success && success.length > 0){ %>
+            <div class="modal" id="success-modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-success">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p><%= success %></p>
+                    <div class="text-right">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% } %>
+          
+          <% if(error && error.length > 0){ %>
+            <div class="modal" id="failure-modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-danger">We encountered a problem</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p><%= error %></p>
+                    <div class="text-right">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% } %>

@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+<div class="p-5 bg-olive">
+    <div class="row px-0 px-sm-4 px-lg-5 mt-4">
+        <div class="col-12">
+            <h2 class="text-center text-white">Starters</h2>
+            <div class="brick bg-light-olive"></div>
+        </div>
+        <% recipes.forEach((item) => { %>
+            <% if(item.category == "starter"){ %>
+                <div class="card-group col-md-6 col-lg-4 pt-3 px-4">
+                    <div class="card">
+                        <img class="img-fluid card-img-top" src="<%= item.image %>" alt="">
+                        <div class="card-body">
+                          <h3 class="card-title"><%= item.title %></h3>
+                          <p class="card-text"><%= item.description %></p>
+                          <a href="/recipes/<%= item._id %>" class="text-primary"><b>Read recipe</b></a>
+                        </div>
+                     </div>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+    <div class="row px-0 px-sm-4 px-lg-5 mt-4">
+        <div class="col-12">
+            <h2 class="text-center text-white pt-5">Mains</h2>
+            <div class="brick bg-light-olive"></div>
+        </div>
+        <% recipes.forEach((item) => { %>
+            <% if(item.category == "main"){ %>
+                <div class="card-group col-md-6 col-lg-4 pt-3 px-4">
+                    <div class="card">
+                        <img class="img-fluid card-img-top" src="<%= item.image %>" alt="">
+                        <div class="card-body">
+                          <h3 class="card-title"><%= item.title %></h3>
+                          <p class="card-text"><%= item.description %></p>
+                          <a href="/recipes/<%= item._id %>" class="text-primary"><b>Read recipe</b></a>
+                        </div>
+                     </div>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+    <div class="row px-0 px-sm-4 px-lg-5 mt-4">
+        <div class="col-12">
+            <h2 class="text-center text-white pt-5">Desserts</h2>
+            <div class="brick bg-light-olive"></div>
+        </div>
+        <% recipes.forEach((item) => { %>
+            <% if(item.category == "dessert"){ %>
+                <div class="card-group col-md-6 col-lg-4 pt-3 px-4">
+                    <div class="card">
+                        <img class="img-fluid card-img-top" src="<%= item.image %>" alt="">
+                        <div class="card-body">
+                          <h3 class="card-title"><%= item.title %></h3>
+                          <p class="card-text"><%= item.description %></p>
+                          <a href="/recipes/<%= item._id %>" class="text-primary"><b>Read recipe</b></a>
+                        </div>
+                     </div>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+</div>
+<%- include('../partials/footer') %>
