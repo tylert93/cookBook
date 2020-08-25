@@ -13,8 +13,7 @@ import indexRoutes from './routes/index';
 import recipeRoutes from './routes/recipes';
 import commentRoutes from './routes/comments';
 
-const app = express(),
-      seedDB = require("./seed.js");
+const app = express();
 
 // APP CONFIGURATION      
 dotEnv.config();
