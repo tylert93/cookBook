@@ -62,8 +62,7 @@ indexRoutes.get("/logout", (req, res) => {
 
 // CATCH ALL
 indexRoutes.get("*", (req, res) => {
-    req.flash("error", "We couldn't find the page you were after");
-    res.redirect("/recipes");
+    res.render("error");
 })
 
 export default indexRoutes;
