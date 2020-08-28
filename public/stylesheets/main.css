@@ -53,3 +53,7 @@ body{
 .p-10{
     padding:4rem 6rem;
 }
+
+.nobr{
+    white-space: nowrap;
+}
